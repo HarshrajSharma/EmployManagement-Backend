@@ -5,8 +5,7 @@ var cors = require("cors");
 const md5 = require("md5")
 require("dotenv").config();
 
-const mongooseConnect = require("./authentication/mongooseAuth");
-const login = require("./authentication/loginAuth");
+
 
 mongoose.connect(process.env.MONGOOSECONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -36,7 +35,7 @@ const locationSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 const Location = mongoose.model("Location", locationSchema);
 
-app.post("/", function(req, res){
+app.get("/", function(req, res){
     res.send("Hello!")
 })
 
