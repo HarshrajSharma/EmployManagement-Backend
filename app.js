@@ -35,6 +35,12 @@ const locationSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 const Location = mongoose.model("Location", locationSchema);
 
+app.post("/", function(req, res){
+    res.send("Hello!")
+})
+
+
+
 app.post("/login", function (req, res) {
     if (md5(req.body.username) === login.username && md5(req.body.password) === login.password) {
         res.send("Success")
