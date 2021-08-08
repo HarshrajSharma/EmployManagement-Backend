@@ -7,7 +7,16 @@ require("dotenv").config();
 
 
 
-mongoose.connect(process.env.MONGOOSECONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DB, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology:true,
+    useFindAndModify: false
+}).then(()=>{
+    console.log("Database Connected")
+}).catch((err)=>{
+    console.log("No Connection")
+});
 
 
 const app = express();
