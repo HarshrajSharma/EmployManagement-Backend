@@ -17,7 +17,6 @@ mongoose.connect(process.env.DB, {
 }).catch((err)=>{
     console.log("No Connection")
 });
-// mongoose.connect("mongodb+srv://harsh:A1b2c3d4@@a1classesemploydatas.wmp33.mongodb.net/employManagementUserDetails?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 const app = express();
