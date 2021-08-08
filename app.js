@@ -8,7 +8,7 @@ require("dotenv").config();
 const mongooseConnect = require("./authentication/mongooseAuth");
 const login = require("./authentication/loginAuth");
 
-mongoose.connect(mongooseConnect, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGOOSECONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 const app = express();
@@ -17,6 +17,7 @@ app.use(express.static("public"));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 
 
 const userSchema = new mongoose.Schema({
@@ -42,7 +43,7 @@ app.post("/", function(req, res){
 
 
 app.post("/login", function (req, res) {
-    if (md5(req.body.username) === login.username && md5(req.body.password) === login.password) {
+    if (md5(req.body.username) === process.env.USER && md5(req.body.password) === process.env.PASSWORD) {
         res.send("Success")
     } else {
         res.send("Enter correct username and password")
