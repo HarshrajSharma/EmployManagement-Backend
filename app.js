@@ -182,6 +182,6 @@ app.post("/deleteUser", function (req, res) {
 });
 
 
-app.listen(5000, function () {
+app.listen(process.env.PORT || 5000, function () {
     console.log("Server started at port 5000")
 });
